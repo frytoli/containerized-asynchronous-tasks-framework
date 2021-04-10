@@ -1,0 +1,29 @@
+version: "3"
+services:
+  rabbitmq:
+    hostname: rabbitmq
+    image: rabbitmq:latest
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_USER=changeme
+      - RABBITMQ_PASS=changeme
+    ports:
+      - "127.0.0.1:5672:5672"
+
+  redis:
+    hostname: redis
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  app:
+    hostname: app
+    build: ./app
+    container_name: app
+    environment:
+      - RABBITMQ_USER=changeme
+      - RABBITMQ_PASS=changeme
+    depends_on:
+      - rabbitmq
+      - redis

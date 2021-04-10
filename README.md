@@ -1,2 +1,2 @@
-# containerized-asynchronous-tasks-framework
-Containerized framework for asynchronous tasks with Celery, RabbitMQ, and Reddis
+# Task Rabbit
+A containerized framework for asynchronous tasks with Celery, RabbitMQ, and Reddis

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from celery import Celery
 import os
 

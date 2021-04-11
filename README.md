@@ -12,7 +12,7 @@ A containerized framework for asynchronous tasks with Python Celery, RabbitMQ, a
 2. Add your task methods to ```consumer.py```. The current example task returns the sum of two given numbers.
 3. Import your task(s) in ```producer.py``` and invoke the task(s) as desired. The current example imports and executes the add task.
 
-Other Notes: Celery and the producer's stderr and stdout is redirected to ```/var/log/celery.log``` and ```/var/log/app.log``` respectively within the container. These paths can be changed (or removed entirely) in ```conf/supervise-celery.conf``` and ```supervise-producer.conf```.
+Other Notes: Celery and the producer's stderr and stdout is redirected to ```/var/log/celery.log``` and ```/var/log/app.log``` respectively within the container. These paths can be changed (or removed entirely) in ```conf/supervise-celery.conf``` and ```conf/supervise-producer.conf```.
 
 ## Building and Running
 ``` bash

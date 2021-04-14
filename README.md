@@ -1,4 +1,4 @@
-# Task Rabbit
+# Task Garden
 A containerized framework for asynchronous tasks with Python Celery, RabbitMQ, and Reddis
 
 ## Technologies:

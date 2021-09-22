@@ -1,5 +1,5 @@
 # Task Garden
-A containerized framework for asynchronous tasks with Python Celery, RabbitMQ, and Reddis
+A containerized framework for asynchronous tasks with Python Celery (please sign my [Official Petition for a Celery Emoji](https://github.com/frytoli)), RabbitMQ 🐰, and Reddis 🥬
 
 ## Technologies:
 * Python 3.9

@@ -5,8 +5,8 @@ services:
     image: rabbitmq:latest
     container_name: rabbitmq
     environment:
-      - RABBITMQ_USER=changeme
-      - RABBITMQ_PASS=changeme
+      - RABBITMQ_DEFAULT_USER=changeme
+      - RABBITMQ_DEFAULT_PASS=changeme
     ports:
       - "127.0.0.1:5672:5672"
 
@@ -17,14 +17,42 @@ services:
     ports:
       - "127.0.0.1:6379:6379"
 
-  app:
-    hostname: app
-    build: ./app
-    container_name: app
+  producer:
+    hostname: producer
+    build: ./producer
+    container_name: producer
     environment:
-      - RABBITMQ_USER=changeme
-      - RABBITMQ_PASS=changeme
-      - CONCURRENCY=5
+      - BROKER_AUTH=changeme:changeme
+      - BROKER_URL=rabbitmq:5672
+      - BACKEND_URL=redis:6379
+      - LOGLEVEL=info
+    depends_on:
+      - rabbitmq
+      - redis
+
+  worker1:
+    hostname: worker1
+    build: ./consumer
+    container_name: worker1
+    environment:
+      - BROKER_AUTH=changeme:changeme
+      - BROKER_URL=rabbitmq:5672
+      - BACKEND_URL=redis:6379
+      - CONCURRENCY=2
+      - LOGLEVEL=info
+    depends_on:
+      - rabbitmq
+      - redis
+
+  worker2:
+    hostname: worker2
+    build: ./consumer
+    container_name: worker2
+    environment:
+      - BROKER_AUTH=changeme:changeme
+      - BROKER_URL=rabbitmq:5672
+      - BACKEND_URL=redis:6379
+      - CONCURRENCY=2
       - LOGLEVEL=info
     depends_on:
       - rabbitmq

@@ -7,6 +7,11 @@ A containerized framework for distributed, asynchronous tasks with Python Celery
 * RabbitMQ (latest Docker image)
 * Reddis (latest Docker image)
 
+## Build and Run
+``` bash
+docker-compose build && docker-compose up -d
+```
+
 ## Framework
 Use this framework to jumpstart your distributed and/or asynchronous application! Before use, take note of the following:
 1. Edit the environment variables accordingly in ```docker-compose.yml```:
@@ -27,8 +32,3 @@ Use this framework to jumpstart your distributed and/or asynchronous application
 
 ## Distributed and Asynchronous Work
 ![](media/distasync.png)
-
-## Building and Running
-``` bash
-docker-compose build && docker-compose up -d
-```

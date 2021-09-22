@@ -16,14 +16,17 @@ Use this framework to jumpstart your distributed and/or asynchronous application
   * ```LOGLEVEL``` in the worker (**worker1** and **worker2**) containers is the desired logging level passed to Celery.
 2. Tasks can be distributed among as many or as few containers as desired, just by adjusting the ```scale``` value in ```docker-compose.yml```. In this example, two worker containers are spawned.
 3. The Celery app configuration in the **producer** (found in ```producer/produce.py```) and **consumer** (found in ```consumer/consume.py```) must be the same in order to ensure tasks are being pushed and pulled from the same, correct queue.
-4. Celery tasks can be invoked in multiple ways, one of the most straight forward being to be invoked by name. In this example, we are indeed invoking the ```square``` task by name. See the task decorator on line 14 in ```consumer/consume.py``` and the task invocation on line 21 in ```producer/produce.py```.
+4. Celery tasks can be invoked in multiple ways, one of the most straight forward being to be invoked by name. In this example, we are indeed invoking the ```square``` task by name. See the task decorator on [line 14](https://github.com/frytoli/distributed-celery-docker/blob/350145723beb1fb85a8a2cb47a914d171166c745/consumer/consume.py#L14) in ```consumer/consume.py``` and the task invocation on [line 21](https://github.com/frytoli/distributed-celery-docker/blob/350145723beb1fb85a8a2cb47a914d171166c745/producer/produce.py#L21) in ```producer/produce.py```.
 5. Output from processes managed by supervisord in the **producer** and worker (**worker1** and **worker2**) containers is all set to be redirected to stdout and stderr. This can be changed to a different file or removed entirely in ```producer/conf/supervise-producer.conf``` and ```consumer/conf/supervise-consumer.conf```.
 
 ## Distributed Work
-Stuff
+![](media/dist.png)
 
 ## Asynchronous Work
-Stuff
+![](media/async.png)
+
+## Distributed and Asynchronous Work
+![](media/distasync.png)
 
 ## Building and Running
 ``` bash

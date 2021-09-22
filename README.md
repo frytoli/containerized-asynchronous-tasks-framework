@@ -1,5 +1,7 @@
 # A Dockerized Framework for Distributed, Asynchronous Tasks
-A containerized framework for distributed, asynchronous tasks with Python Celery (please sign my [Official Petition for a Celery Emoji](https://github.com/frytoli)), RabbitMQ 🐰, and Reddis 🥬 (get it? Reddis like "lettuce").
+A containerized framework for distributed, asynchronous tasks with Python Celery (#petitionforaceleryemoji), RabbitMQ 🐰, and Reddis 🥬 (get it? Reddis like "lettuce").
+
+See a more detailed discussion in my post [Dockerized Distributed, Asynchronous Work](https://oliviafryt.com/posts/docker_celery_rq.html).
 
 ## Technologies:
 * Python 3.9

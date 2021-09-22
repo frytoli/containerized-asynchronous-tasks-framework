@@ -22,9 +22,12 @@ services:
     build: ./producer
     container_name: producer
     environment:
-      - BROKER_AUTH=changeme:changeme
-      - BROKER_URL=rabbitmq:5672
-      - BACKEND_URL=redis:6379
+      - BROKER_USER=changeme
+      - BROKER_PASS=changeme
+      - BROKER_HOST=rabbitmq
+      - BROKER_PORT=5672
+      - BACKEND_HOST=redis
+      - BACKEND_PORT=6379
       - LOGLEVEL=info
     depends_on:
       - rabbitmq
@@ -35,9 +38,12 @@ services:
     build: ./consumer
     container_name: worker1
     environment:
-      - BROKER_AUTH=changeme:changeme
-      - BROKER_URL=rabbitmq:5672
-      - BACKEND_URL=redis:6379
+      - BROKER_USER=changeme
+      - BROKER_PASS=changeme
+      - BROKER_HOST=rabbitmq
+      - BROKER_PORT=5672
+      - BACKEND_HOST=redis
+      - BACKEND_PORT=6379
       - CONCURRENCY=2
       - LOGLEVEL=info
     depends_on:
@@ -49,9 +55,12 @@ services:
     build: ./consumer
     container_name: worker2
     environment:
-      - BROKER_AUTH=changeme:changeme
-      - BROKER_URL=rabbitmq:5672
-      - BACKEND_URL=redis:6379
+      - BROKER_USER=changeme
+      - BROKER_PASS=changeme
+      - BROKER_HOST=rabbitmq
+      - BROKER_PORT=5672
+      - BACKEND_HOST=redis
+      - BACKEND_PORT=6379
       - CONCURRENCY=2
       - LOGLEVEL=info
     depends_on:

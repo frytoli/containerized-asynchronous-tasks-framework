@@ -7,8 +7,8 @@ import os
 # Define the celery app
 app = Celery(
     'myApp',
-    broker=f'''amqp://{os.getenv('BROKER_AUTH')}}@{os.getenv('BROKER_URL')}''',
-    backend=f'''rpc://{os.getenv('BACKEND_URL')}'''
+    broker=f'''amqp://{os.getenv('BROKER_USER')}:{os.getenv('BROKER_PASS')}@{os.getenv('BROKER_HOST')}:{os.getenv('BROKER_PORT')}''',
+    backend=f'''rpc://{os.getenv('BACKEND_HOST')}:{os.getenv('BACKEND_PORT')}'''
 )
 
 @app.task(name='square')
